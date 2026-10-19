@@ -223,6 +223,16 @@ h2 {
   margin: 0.35rem 0 0.7rem;
 }
 
+.detail figure {
+  margin: 0.55rem 0 0.75rem;
+}
+
+.detail figure img {
+  height: auto;
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
 .meta {
   color: var(--muted);
   font-size: 0.9rem;

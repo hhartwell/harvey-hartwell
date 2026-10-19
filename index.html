@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Harvey Hartwell</title>
   <meta name="description" content="Harvey Hartwell is a full-stack software engineer. Case studies on Pawborough, Truffle Shuffle, Trailhead, and Tinderwealth.">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <header class="site">
@@ -31,23 +31,38 @@
           <summary>
             <span class="meta">Live</span>
             <h3>Pawborough</h3>
-            <p>A live online game. Paid shop, player marketplace, and the paths editors use to publish.</p>
+            <p>A live online game. Cat creator, paid shop, player marketplace, and cosmetics players publish themselves.</p>
             <p><a href="https://pawborough.net/wardrobe/cat-creator">Pawborough site link</a></p>
           </summary>
           <div class="detail">
-            <p>A live online game. I am one of three engineers, and I own the paid shop, the player marketplace, and a large share of how content reaches players.</p>
+            <p>A live online game. I am one of three engineers. I own the paid shop, the player marketplace, and a large share of how content reaches players.</p>
             <h4>What players can do</h4>
-            <p>Players collect and use cosmetics, play a turn-based game, and personalize their profile. They take part in an in-game economy, and they can submit their own work for other players to buy. They complete hourly, daily, and weekly tasks for rewards. They can take part in social forums and create their own.</p>
-            <h4>The paid shop</h4>
-            <p>Checkout runs through PayPal. The server creates and updates the order, then grants items only after the captured amount and currency match the checkout total. I have spent a lot of time on the cases that break that promise: a product granted without a valid purchase, a one-time product granted twice, and a retired product that still fulfilled.</p>
-            <p>That work is less about a single screen and more about keeping the charge, the order, and the player's inventory in agreement.</p>
-            <h4>Marketplace and ledger</h4>
-            <p>The marketplace is player to player. A sale is rejected when the price, the listing, or the buyer's inventory does not match what checkout promised. The same idea shows up in trades: the game should not complete a handoff it cannot actually finish.</p>
-            <p>Alongside that, I built a ledger of virtual-currency changes. Purchases, sales, grants, and other mints and burns are recorded so a balance can be traced instead of edited in place. Support can follow a purchase or a balance change after the fact.</p>
+            <p>Players collect cosmetics, play a turn-based game, and personalize a profile. They buy and sell, finish hourly, daily, and weekly tasks, and can join a forum or start one.</p>
+            <h4>Cat creator</h4>
+            <figure>
+              <img src="images/cat-creator.jpg" alt="The Pawborough cat creator, with a peach and green ribbonwing cat, moth wings, and a glowing tail, next to breed, age, and pose controls.">
+            </figure>
+            <p>Players assemble a cat from breed, age, pose, and color. Cosmetics show up on that same cat once they are published.</p>
             <h4>Publishing</h4>
-            <p>A lot of what players see is edited by people who are not writing code. Forum boards have an order an admin can set. Announcements can go out by email with a subject an admin chooses. Catalog content is edited in the product.</p>
+            <figure>
+              <img src="images/pelt-submit.jpg" alt="The pelt submission form, with name, colors, and breed choices, and a coverage preview of a white kitten over green and red blocks.">
+            </figure>
+            <p>Players design their own cosmetics and submit them to the catalog. A pelt is uploaded for each breed and pose it should cover, and the form checks how much of the cat the art actually covers. Once it is in, it fits the cat creator the same way an existing item does.</p>
+            <h4>The paid shop</h4>
+            <figure>
+              <img src="images/premium-store.jpg" alt="The premium store, selling silver in packs from 100 coins for one dollar up to 10,000 coins for one hundred dollars.">
+            </figure>
+            <p>Checkout runs through PayPal. The server creates the order, then grants items only after the captured amount and currency match the total. The cases I keep closing are a product granted without a valid purchase, a one-time product granted twice, and a retired product that still fulfilled.</p>
+            <h4>Genetics</h4>
+            <figure>
+              <img src="images/offspring.jpg" alt="An offspring overview with four kittens and the coat colors their parents can pass on, split into overcoat, undercoat, and two accents.">
+            </figure>
+            <p>Coat color is inherited. Overcoat, undercoat, and accent genes pass from the parents, and the game lists the kittens those genes can produce. Each cat stays tied to that lineage.</p>
+            <h4>Marketplace and ledger</h4>
+            <p>The marketplace is player to player. A sale is rejected when the price, the listing, or the buyer's inventory does not match what checkout promised. Trades follow the same rule: the game should not complete a handoff it cannot finish.</p>
+            <p>I built a ledger of virtual-currency changes. Purchases, sales, grants, and other mints and burns are recorded so a balance can be traced instead of edited in place.</p>
             <h4>Production</h4>
-            <p>Pawborough is the product I support in production now. Releases go through automated tests, including end-to-end coverage, before players see them. When something fails, I use request traces, metrics, logs, and error reporting to find whether the problem is the API, a background job, or the data behind a screen.</p>
+            <p>Releases go through automated tests, including end-to-end coverage, before players see them. When something fails, I use traces, metrics, logs, and error reporting to see whether the problem is the API, a background job, or the data behind a screen.</p>
             <p class="stack">Python, Django, JavaScript, Vue 3, Nuxt 3, PostgreSQL, Redis, Docker, PayPal. Tests with pytest, Vitest, and Playwright.</p>
           </div>
         </details>
