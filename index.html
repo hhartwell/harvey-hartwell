@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harvey Hartwell</title>
+  <meta name="description" content="Harvey Hartwell is a full-stack software engineer. Case studies on Pawborough, Truffle Shuffle, Trailhead, and Tinderwealth.">
+  <link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body>
+  <header class="site">
+    <div class="bar">
+      <a class="brand" href="index.html">Harvey Hartwell</a>
+      <nav aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="personal.html">Personal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="muted">Full Stack Software Engineer</p>
+    <h1>I build the path from a requirement to a running product.</h1>
+    <p class="lede">For six years I have been one of three engineers at CKCollab. I own features across the API, the interface, and the operational side.</p>
+    <h2 id="work">Work</h2>
+    <ul class="work">
+      <li>
+        <details name="work" id="pawborough">
+          <summary>
+            <span class="meta">Live</span>
+            <h3>Pawborough</h3>
+            <p>A live online game. Paid shop, player marketplace, and the paths editors use to publish.</p>
+            <p><a href="https://pawborough.net/wardrobe/cat-creator">Pawborough site link</a></p>
+          </summary>
+          <div class="detail">
+            <p>A live online game. I am one of three engineers, and I own the paid shop, the player marketplace, and a large share of how content reaches players.</p>
+            <h4>What players can do</h4>
+            <p>Players collect and use cosmetics, play a turn-based game, and personalize their profile. They take part in an in-game economy, and they can submit their own work for other players to buy. They complete hourly, daily, and weekly tasks for rewards. They can take part in social forums and create their own.</p>
+            <h4>The paid shop</h4>
+            <p>Checkout runs through PayPal. The server creates and updates the order, then grants items only after the captured amount and currency match the checkout total. I have spent a lot of time on the cases that break that promise: a product granted without a valid purchase, a one-time product granted twice, and a retired product that still fulfilled.</p>
+            <p>That work is less about a single screen and more about keeping the charge, the order, and the player's inventory in agreement.</p>
+            <h4>Marketplace and ledger</h4>
+            <p>The marketplace is player to player. A sale is rejected when the price, the listing, or the buyer's inventory does not match what checkout promised. The same idea shows up in trades: the game should not complete a handoff it cannot actually finish.</p>
+            <p>Alongside that, I built a ledger of virtual-currency changes. Purchases, sales, grants, and other mints and burns are recorded so a balance can be traced instead of edited in place. Support can follow a purchase or a balance change after the fact.</p>
+            <h4>Publishing</h4>
+            <p>A lot of what players see is edited by people who are not writing code. Forum boards have an order an admin can set. Announcements can go out by email with a subject an admin chooses. Catalog content is edited in the product.</p>
+            <h4>Production</h4>
+            <p>Pawborough is the product I support in production now. Releases go through automated tests, including end-to-end coverage, before players see them. When something fails, I use request traces, metrics, logs, and error reporting to find whether the problem is the API, a background job, or the data behind a screen.</p>
+            <p class="stack">Python, Django, JavaScript, Vue 3, Nuxt 3, PostgreSQL, Redis, Docker, PayPal. Tests with pytest, Vitest, and Playwright.</p>
+          </div>
+        </details>
+      </li>
+      <li>
+        <details name="work" id="truffle-shuffle">
+          <summary>
+            <span class="meta">Launched, later shut down</span>
+            <h3>Truffle Shuffle</h3>
+            <p>Culinary experience bookings. Card and bank checkout, deposits, memberships, and kit shipping.</p>
+          </summary>
+          <div class="detail">
+            <p>A consumer site for booking culinary experiences, including private events and ingredient kits. It launched. It later shut down when demand and funding ran out.</p>
+            <h4>What I owned</h4>
+            <p>I owned checkout and the pieces around it: how a booking was paid for, how a membership was sold, how a kit was shipped, and how draft content became a public page.</p>
+            <h4>Checkout</h4>
+            <p>Private bookings could be paid by card or by bank debit. Bank checkout used invoices: a deposit first, then a final charge, with an email when that final payment cleared. A coupon that waived the deposit still collected a card, so the booking was not left without a way to charge the rest.</p>
+            <p>The payment method was stored on the booking. Memberships were sold as line items, with a renewal email and the billing period kept in sync with Stripe. Revenue reporting included deposits, not only the final charge.</p>
+            <h4>Fulfillment</h4>
+            <p>Some experiences shipped an ingredient kit. Those orders went to ShipStation with a SKU for the timeslot, the attendee as the ship-to name, and timestamps in Pacific time. Addresses were validated, with autocomplete, before the order left checkout.</p>
+            <h4>What operators could change</h4>
+            <p>The public site was fed by content with a real draft state. Draft and archived events stayed out of public search. Operators could update dates, guest lists, and assets, including chef photos, without treating every change as an engineering task. Hosts and guests received different email depending on the stage of the booking, from the reservation through the final payment.</p>
+            <p class="stack">Python, Django, JavaScript, Nuxt, Vue, Stripe, ShipStation.</p>
+          </div>
+        </details>
+      </li>
+      <li>
+        <details name="work" id="trailhead">
+          <summary>
+            <span class="meta">Built, did not launch</span>
+            <h3>Trailhead</h3>
+            <p>A tool for laser physicists to design a specific configuration, with workers that scale for the compute.</p>
+          </summary>
+          <div class="detail">
+            <p>A tool for laser physicists to design a specific laser configuration. The product was built and did not launch, after funding trouble. The engineering work was still end to end: a paid path in front, and a pool of machines behind it.</p>
+            <h4>The product</h4>
+            <p>A physicist described the configuration they wanted. The hard part was the compute behind that request. A run had a cost, and it stayed locked until it was paid for.</p>
+            <h4>Cart and checkout</h4>
+            <p>I built the cart and the Stripe checkout in front of that work. The cart showed a cost breakdown. An empty cart could not check out. Stripe confirmed the card payment, and a saved card could be reused. The run unlocked after the charge succeeded.</p>
+            <h4>Workers that scale</h4>
+            <p>I designed the architecture for the EC2 boxes that ran the machine learning jobs. The pool scaled up when there was work and scaled back down when the queue was empty, so the cost followed the jobs instead of sitting on a fixed fleet.</p>
+            <p>The useful design question was when a box should exist at all. A job arrives, capacity grows, the job finishes, and the extra machines go away. That is the shape I put in place.</p>
+            <p class="stack">Python, Django, JavaScript, Nuxt, Vue, Stripe, AWS EC2 autoscaling.</p>
+          </div>
+        </details>
+      </li>
+      <li>
+        <details name="work" id="tinderwealth">
+          <summary>
+            <span class="meta">In development</span>
+            <h3>Tinderwealth</h3>
+            <p>A wealth product. Stripe billing for saved cards, one-time charges, and subscriptions.</p>
+          </summary>
+          <div class="detail">
+            <p>A wealth product that is still in development. My work on it is the billing system: how a customer is charged, how a card is saved, and how a subscription changes over time.</p>
+            <h4>What billing has to cover</h4>
+            <p>The product sells ongoing access, not a single checkout. A customer can pay once, or enter a subscription that moves through more than one phase. Cards are saved on the customer and can be switched later, including the billing address on the card.</p>
+            <h4>What I built</h4>
+            <p>I built the Stripe integration behind that. It covers customers, saved cards, Checkout, payment intents, one-time charges, and multi-phase subscription schedules. Signed webhooks record the outcomes that matter: a completed checkout, a paid invoice, a failed invoice, a cancellation, and a subscription that Stripe has released from its schedule.</p>
+            <p>A declined card is rejected before it is saved. Failed payments are a normal path in the system, not an exception discovered in production later. The same flows are covered by API tests, because billing bugs are expensive to find after a customer has already been charged.</p>
+            <h4>Where it stands</h4>
+            <p>This product has not launched. The billing direction is in place while the rest of the product is still being shaped. I talk about it as work in progress, not as a system I operate in production.</p>
+            <p class="stack">Python, Django, Stripe.</p>
+          </div>
+        </details>
+      </li>
+    </ul>
+
+    <h2 id="about">Education</h2>
+    <p>BA in Computer Science, with an emphasis in Communication Studies, from Gonzaga University</p>
+
+    <h2 id="contact">Contact</h2>
+    <p><a href="mailto:harvey.hartwell@gmail.com">harvey.hartwell@gmail.com</a><br>
+    <a href="tel:+15099190888">(509) 919-0888</a></p>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">CKCollab, 2020–present.</div>
+  </footer>
+  <script src="work.js?v=4"></script>
+</body>
+</html>
